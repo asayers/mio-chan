@@ -1,11 +1,8 @@
-# Mio More
+# Mio Chan
 
-Extra components for use with Mio.
+Thread safe communication channel implementing Evented.
 
-## Maintenance status
-
-This repository is not actively maintained. It is mostly a dumping ground of
-code that was deprecated in the Mio crate.
+This crate is based on code that was deprecated in the Mio crate.
 
 ## TODO
 
@@ -13,8 +10,8 @@ code that was deprecated in the Mio crate.
 
 # License
 
-`tokio-more` is primarily distributed under the terms of both the MIT license
-and the Apache License (Version 2.0), with portions covered by various BSD-like
+`mio-chan` is primarily distributed under the terms of both the MIT license and
+the Apache License (Version 2.0), with portions covered by various BSD-like
 licenses.
 
 See LICENSE-APACHE, and LICENSE-MIT for details.

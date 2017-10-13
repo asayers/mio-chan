@@ -1,13 +1,12 @@
 [package]
-
-name          = "mio-more"
+name          = "mio-chan"
 version       = "0.1.0"
 license       = "MIT"
-authors       = ["Carl Lerche <me@carllerche.com>"]
-description   = "Extra components for use with Mio"
-documentation = "https://docs.rs/mio-more"
-homepage      = "https://github.com/carllerche/mio-more"
-repository    = "https://github.com/carllerche/mio-more"
+authors       = ["Carl Lerche <me@carllerche.com>", "Alex Sayers <alex.sayers@gmail.com>"]
+description   = "Thread safe communication channel implementing Evented"
+documentation = "https://docs.rs/mio-chan"
+homepage      = "https://github.com/asayers/mio-chan"
+repository    = "https://github.com/asayers/mio-chan"
 readme        = "README.md"
 keywords      = ["io", "async", "non-blocking"]
 categories    = ["asynchronous"]
