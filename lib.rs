@@ -231,7 +231,7 @@ impl ReceiverCtl {
         if first == 1 {
             // Unset readiness
             if let Some(set_readiness) = self.inner.set_readiness.borrow() {
-                try!(set_readiness.set_readiness(Ready::none()));
+                try!(set_readiness.set_readiness(Ready::empty()));
             }
         }
 
@@ -256,8 +256,8 @@ impl Evented for ReceiverCtl {
             return Err(io::Error::new(io::ErrorKind::Other, "receiver already registered"));
         }
 
-        let (registration, set_readiness) = Registration::new(poll, token, interest, opts);
-
+        let (registration, set_readiness) = Registration::new2();
+        registration.register(poll, token, interest, opts)?;
 
         if self.inner.pending.load(Ordering::Relaxed) > 0 {
             // TODO: Don't drop readiness
@@ -272,7 +272,7 @@ impl Evented for ReceiverCtl {
 
     fn reregister(&self, poll: &Poll, token: Token, interest: Ready, opts: PollOpt) -> io::Result<()> {
         match self.registration.borrow() {
-            Some(registration) => registration.update(poll, token, interest, opts),
+            Some(registration) => registration.reregister(poll, token, interest, opts),
             None => Err(io::Error::new(io::ErrorKind::Other, "receiver not registered")),
         }
     }
